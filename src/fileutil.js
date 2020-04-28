@@ -1,7 +1,7 @@
 const glob = require('glob');
 
 const fileUtil = {
-  fetchReadmeList: function (dir, callback) {
+  getFileList: function (dir, callback) {
     glob(dir, function (err, matches) {
       if (err) {
         callback(err, null);
