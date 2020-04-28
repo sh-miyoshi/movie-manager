@@ -6,7 +6,11 @@ app.on('window-all-closed', function () {
 });
 
 app.on('ready', function () {
-  let mainWindow = new BrowserWindow({ width: 800, height: 600 });
+  let mainWindow = new BrowserWindow({
+    width: 800, height: 600, webPreferences: {
+      nodeIntegration: true
+    }
+  });
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   mainWindow.on('closed', function () {
