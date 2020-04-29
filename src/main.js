@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+let mainWindow = null
 
 app.on('window-all-closed', function () {
   if (process.platform != 'darwin')
@@ -6,7 +7,7 @@ app.on('window-all-closed', function () {
 });
 
 app.on('ready', function () {
-  let mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800, height: 600, webPreferences: {
       nodeIntegration: true
     }

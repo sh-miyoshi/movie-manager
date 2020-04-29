@@ -2,6 +2,7 @@ const electron = require('electron');
 const remote = electron.remote;
 const fileUtil = remote.require('./fileUtil');
 const fs = require('fs');
+const path = require('path');
 
 fileUtil.getFileList('tmp/**', function (err, matches) {
   if (err) {
@@ -9,13 +10,13 @@ fileUtil.getFileList('tmp/**', function (err, matches) {
     return
   }
 
-  const files = new Array()
+  let res = ""
   for (const v of matches) {
     const stats = fs.statSync(v)
     if (stats.isFile()) {
-      files.push(v)
+      res += "<video controls src=\"" + path.join(__dirname, "../", v) + "\"></video>"
     }
   }
 
-  document.getElementById("movie_list").innerHTML = files.join()
+  document.getElementById("movie_list").innerHTML = res
 });
