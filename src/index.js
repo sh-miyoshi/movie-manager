@@ -14,7 +14,13 @@ fileUtil.getFileList('tmp/**', function (err, matches) {
   for (const v of matches) {
     const stats = fs.statSync(v)
     if (stats.isFile()) {
-      res += "<video controls src=\"" + path.join(__dirname, "../", v) + "\"></video>"
+      res += `
+<div>
+Title: ${v}<br/>
+Tags: <br/>
+<video controls width="300px" src="${path.join(__dirname, "../", v)}"></video>
+</div>
+`
     }
   }
 
