@@ -1,8 +1,9 @@
 const electron = require('electron');
-const remote = electron.remote;
-const fileUtil = remote.require('./fileUtil');
 const fs = require('fs');
 const path = require('path');
+const remote = electron.remote;
+const fileUtil = remote.require('./fileUtil');
+const tag = remote.require('./tag')
 
 fileUtil.getFileList('tmp/**', function (err, matches) {
   if (err) {
@@ -17,7 +18,7 @@ fileUtil.getFileList('tmp/**', function (err, matches) {
       res += `
 <div>
 Title: ${v}<br/>
-Tags: <br/>
+Tags: ${tag.getTags(v).join()}<br/>
 <video controls width="300px" src="${path.join(__dirname, "../", v)}"></video>
 </div>
 `
