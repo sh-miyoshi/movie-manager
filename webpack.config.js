@@ -1,5 +1,5 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require('webpack')
+const path = require('path')
 
 const externalPlugins = new webpack.ExternalsPlugin('commonjs', [
   'app',
@@ -20,16 +20,16 @@ const externalPlugins = new webpack.ExternalsPlugin('commonjs', [
   'clipboard',
   'crash-reporter',
   'screen',
-  'shell'
+  'shell',
 ])
 
 module.exports = {
   entry: {
-    index: path.join(__dirname, 'src', 'index.js')
+    index: path.join(__dirname, 'src', 'index.js'),
   },
   output: {
     path: path.join(__dirname, 'out'),
-    filename: '[name].js'
+    filename: '[name].js',
   },
   devtool: 'cheap-module-eval-source-map',
   target: 'node',
@@ -40,12 +40,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-react', '@babel/preset-env']
-        }
-      }
-    ]
+          presets: ['@babel/preset-react', '@babel/preset-env'],
+        },
+      },
+    ],
   },
-  plugins: [
-    externalPlugins
-  ]
+  plugins: [externalPlugins],
 }
