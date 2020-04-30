@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import { Video } from './video'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <h1>hello, world</h1>
+        <Video name="test"></Video>
       </div>
     )
   }
