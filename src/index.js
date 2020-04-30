@@ -15,10 +15,21 @@ fileUtil.getFileList('tmp/**', function (err, matches) {
   for (const v of matches) {
     const stats = fs.statSync(v)
     if (stats.isFile()) {
+      const tags = tag.getTags(v)
+      let tagStr = ""
+      for (t of tags) {
+        tagStr += `
+<div>
+  ${t}
+  <button>x</button>
+</div>
+`
+      }
+
       res += `
 <div>
 Title: ${v}<br/>
-Tags: ${tag.getTags(v).join()}<br/>
+Tags: ${tagStr}<br/>
 <video controls width="300px" src="${path.join(__dirname, "../", v)}"></video>
 </div>
 `
