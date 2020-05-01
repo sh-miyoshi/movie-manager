@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { Video } from './video'
+import { Video } from './components/video'
 
 class App extends Component {
   render() {
