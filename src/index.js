@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Video name="test"></Video>
+        <Video name="tmp/test.mp4"></Video>
       </div>
     )
   }
