@@ -5,5 +5,11 @@
 			"sample1",
 			"サンプル2"
 		]
+	},
+	{
+		"name": "./tmp/test.mp4",
+		"tags": [
+			"sample1"
+		]
 	}
 ]
