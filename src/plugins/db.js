@@ -77,3 +77,19 @@ export function getAllTag() {
   }
   return []
 }
+
+export function removeTag(fileName, targetTag) {
+  if (tagsData == null) {
+    return
+  }
+
+  for (let data of tagsData) {
+    if (data.name === fileName) {
+      const tags = data.tags.filter(t => t !== targetTag)
+      data.tags = tags
+      break
+    }
+  }
+
+  fs.writeFileSync(tagsDBFile, JSON.stringify(tagsData, null, 4))
+}

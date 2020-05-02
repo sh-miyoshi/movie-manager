@@ -8,7 +8,7 @@ export class Video extends Component {
     return (
       <div>
         Title: {this.props.name}<br />
-        Tags: {getTags(this.props.name).map((tag) => <Tag name={tag} />)}<br />
+        Tags: {getTags(this.props.name).map((tag) => <Tag name={tag} file={this.props.name} />)}<br />
         <video controls width="300px" src={path.resolve(this.props.name)}></video>
       </div>
     )
