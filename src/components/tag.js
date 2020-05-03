@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { removeTag } from '../plugins/db'
 
 export class Tag extends Component {
   render() {
