@@ -93,3 +93,20 @@ export function removeTag(fileName, targetTag) {
 
   fs.writeFileSync(tagsDBFile, JSON.stringify(tagsData, null, 4))
 }
+
+export function addTag(fileName, tag) {
+  if (tagsData == null) {
+    return
+  }
+
+  for (const data of tagsData) {
+    if (data.name === fileName) {
+      if (!data.tags.includes(tag)) {
+        data.tags.push(tag)
+      }
+      break
+    }
+  }
+
+  fs.writeFileSync(tagsDBFile, JSON.stringify(tagsData, null, 4))
+}
