@@ -30,6 +30,21 @@ function getFiles(dirPath, val) {
   return []
 }
 
+export function addOpenFileOrDirectoryList(pathList) {
+  if (filesData == null) {
+    filesData = pathList.concat()
+  }
+
+  for (const path of pathList) {
+    if (!filesData.includes(path)) {
+      filesData.push(path)
+    }
+  }
+
+  // save filesData
+  fs.writeFileSync(filesDBFile, JSON.stringify(filesData, null, 4))
+}
+
 export function getAllVideoFiles() {
   if (filesData != null) {
     let res = []
@@ -37,7 +52,7 @@ export function getAllVideoFiles() {
       const files = getFiles("", data)
       res = res.concat(files)
     }
-    console.log('add files: %o', res)
+    console.log('all files: %o', res)
     return res
   }
   return []
