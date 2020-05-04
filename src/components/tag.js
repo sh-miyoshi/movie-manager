@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import './tag.css'
 
 export class Tag extends Component {
   render() {
     return (
-      <div>
+      <div className="tag">
         {this.props.name}
-        <button onClick={() => this.props.remover(this.props.name)}>x</button>
+        <button className="btn" onClick={() => this.props.remover(this.props.name)}>x</button>
       </div>
     )
   }
