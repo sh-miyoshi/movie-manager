@@ -26,7 +26,7 @@ export class Video extends Component {
   }
 
   getFileName(name) {
-    const val = name.split('/')
+    const val = name.split(/[\/\\]/)
     if (val.length >= 1) {
       return val[val.length - 1]
     }

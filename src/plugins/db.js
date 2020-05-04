@@ -1,5 +1,5 @@
 import fs from 'fs'
-import glob from 'glob'
+import path from 'path'
 
 const tagsDBFile = 'db/tags.json'
 const filesDBFile = 'db/files.json'
@@ -10,16 +10,19 @@ var tagsData = JSON.parse(fs.readFileSync(tagsDBFile))
 var filesData = JSON.parse(fs.readFileSync(filesDBFile))
 var selectsData = JSON.parse(fs.readFileSync(selectDBFile))
 
-export function getVideoFiles() {
-  if (filesData != null) {
-    const res = []
-    for (const file of filesData) {
-      const allList = glob.sync(file)
-      for (const item of allList) {
-        const stats = fs.statSync(item)
-        if (stats.isFile()) {
-          res.push(item)
-        }
+function getFiles(dirPath, val) {
+  const target = path.join(dirPath, val)
+  const stats = fs.statSync(target)
+  if (stats.isFile()) {
+    return [target]
+  } else if (stats.isDirectory()) {
+    let res = []
+    const allDirents = fs.readdirSync(target, { withFileTypes: true })
+    for (const dirent of allDirents) {
+      if (dirent.isFile()) {
+        res.push(path.join(target, dirent.name))
+      } else if (dirent.isDirectory()) {
+        res = res.concat(getFiles(target, dirent.name))
       }
     }
     return res
@@ -27,8 +30,21 @@ export function getVideoFiles() {
   return []
 }
 
+export function getAllVideoFiles() {
+  if (filesData != null) {
+    let res = []
+    for (const data of filesData) {
+      const files = getFiles("", data)
+      res = res.concat(files)
+    }
+    console.log('add files: %o', res)
+    return res
+  }
+  return []
+}
+
 export function getFilteredVideoFiles() {
-  const files = getVideoFiles()
+  const files = getAllVideoFiles()
   if (selectsData == null || selectsData.length < 1) {
     return files
   }
@@ -57,7 +73,7 @@ export function getFilteredVideoFiles() {
 export function getTags(fileName) {
   if (tagsData != null) {
     for (const data of tagsData) {
-      if (data.name === fileName) {
+      if (path.normalize(data.name) === path.normalize(fileName)) {
         return data.tags
       }
     }
