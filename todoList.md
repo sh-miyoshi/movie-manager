@@ -8,7 +8,6 @@
 
 ## Layout
 
-- tag struct
 - video struct
 - video一覧の配置
 - header部
