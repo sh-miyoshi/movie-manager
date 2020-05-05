@@ -15,6 +15,9 @@ app.on('ready', function () {
   })
   mainWindow.loadURL('file://' + __dirname + '/index.html')
 
+  // for debug
+  mainWindow.webContents.openDevTools()
+
   mainWindow.on('closed', function () {
     mainWindow = null
   })
