@@ -4,6 +4,7 @@ import { Video } from './components/video'
 import { getFilteredVideoFiles, addOpenFileOrDirectoryList } from './plugins/db'
 import { remote } from 'electron'
 import { Select } from './components/select'
+import { Container, Row, Col } from 'react-bootstrap'
 
 class App extends Component {
   constructor(props) {
@@ -30,22 +31,22 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <div>headers</div>
-          <div>
+      <Container>
+        <Row>
+          <Col>headers</Col>
+          <Col>
             <button onClick={this.handleOpenDir}>Open Derectory</button>
-          </div>
-        </div>
-        <div>
+          </Col>
+        </Row>
+        <Row>
           <Select />
-        </div>
-        <div>
+        </Row>
+        <Row>
           {
             getFilteredVideoFiles().map((f) => <Video name={f}></Video>)
           }
-        </div>
-      </div>
+        </Row>
+      </Container>
     )
   }
 }

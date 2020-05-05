@@ -9,7 +9,7 @@
   border-radius: 5px;
 }
 
-.tag .btn {
+.tag .tag-btn {
   border: 0;
   background-color: rgba(0, 0, 0, .2);
   color: white;
@@ -21,7 +21,7 @@
   display: inline-block;
 }
 
-.tag .btn:hover {
+.tag .tag-btn:hover {
   background-color: rgba(0, 0, 0, .7);
   color: white;
 }

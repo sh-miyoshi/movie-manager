@@ -6,7 +6,7 @@ export class Tag extends Component {
     return (
       <div className="tag">
         {this.props.name}
-        <button className="btn" onClick={() => this.props.remover(this.props.name)}>x</button>
+        <button className="tag-btn" onClick={() => this.props.remover(this.props.name)}>x</button>
       </div>
     )
   }

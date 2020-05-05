@@ -1,15 +1,15 @@
 [
-	{
-		"name": "./tmp/Anna Kendrick - Cups (Pitch Perfect’s “When I’m Gone”).mp4",
-		"tags": [
-			"sample1",
-			"サンプル2"
-		]
-	},
-	{
-		"name": "./tmp/test.mp4",
-		"tags": [
-			"sample1"
-		]
-	}
+    {
+        "name": "./tmp/Anna Kendrick - Cups (Pitch Perfect’s “When I’m Gone”).mp4",
+        "tags": [
+            "sample1",
+            "サンプル2"
+        ]
+    },
+    {
+        "name": "./tmp/test.mp4",
+        "tags": [
+            "sample1"
+        ]
+    }
 ]

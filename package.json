@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "react-bootstrap": "^1.0.1"
   }
 }
