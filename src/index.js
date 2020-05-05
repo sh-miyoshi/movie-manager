@@ -4,6 +4,7 @@ import { Video } from './components/video'
 import { getFilteredVideoFiles, addOpenFileOrDirectoryList } from './plugins/db'
 import { Container, Row, Col } from 'react-bootstrap'
 import { remote } from 'electron'
+import { Select } from './components/select'
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +38,9 @@ class App extends Component {
             <button onClick={this.handleOpenDir}>Open Derectory</button>
           </Col>
         </Row>
-        <Row>TODO(selected tags)</Row>
+        <Row>
+          <Select />
+        </Row>
         <Row>
           {
             getFilteredVideoFiles().map((f) => <Video name={f}></Video>)

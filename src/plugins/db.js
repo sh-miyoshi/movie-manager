@@ -3,12 +3,12 @@ import path from 'path'
 
 const tagsDBFile = 'db/tags.json'
 const filesDBFile = 'db/files.json'
-const selectDBFile = 'db/selects.json'
+const selectsDBFile = 'db/selects.json'
 
 
 var tagsData = JSON.parse(fs.readFileSync(tagsDBFile))
 var filesData = JSON.parse(fs.readFileSync(filesDBFile))
-var selectsData = JSON.parse(fs.readFileSync(selectDBFile))
+var selectsData = JSON.parse(fs.readFileSync(selectsDBFile))
 
 function getFiles(dirPath, val) {
   const target = path.join(dirPath, val)
@@ -140,4 +140,16 @@ export function addTag(fileName, tag) {
   }
 
   fs.writeFileSync(tagsDBFile, JSON.stringify(tagsData, null, 4))
+}
+
+export function getSelectTags() {
+  if (selectsData == null) {
+    return []
+  }
+  return selectsData
+}
+
+export function setSelectTags(tags) {
+  selectsData = tags
+  fs.writeFileSync(selectsDBFile, JSON.stringify(selectsData, null, 4))
 }
