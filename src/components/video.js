@@ -11,7 +11,7 @@ export class Video extends Component {
       tag: '',
     }
     this.remover = this.remover.bind(this)
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   remover(tag) {
