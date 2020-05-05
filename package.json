@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack && electron .",
+    "dev-server": "webpack --mode development --watch",
+    "electron": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shunsuke Miyoshi",
@@ -26,7 +27,6 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "fs": "0.0.1-security",
-    "react-bootstrap": "^1.0.1"
+    "fs": "0.0.1-security"
   }
 }
