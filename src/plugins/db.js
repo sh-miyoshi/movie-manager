@@ -69,11 +69,11 @@ export function getFilteredVideoFiles() {
 
   const res = []
   for (const f of files) {
-    let ok = false
+    let ok = true
     const tags = getTags(f)
-    for (const t of tags) {
-      if (selectsData.includes(t)) {
-        ok = true
+    for (const t of selectsData) {
+      if (!tags.includes(t)) {
+        ok = false
         break
       }
     }
