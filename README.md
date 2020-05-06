@@ -14,7 +14,9 @@
 ## インストール方法
 
 - Githubからアプリをダウンロード
+  - URL: [https://github.com/sh-miyoshi/movie-manager/releases/download/v0.1/movie-manager-win32-x64.zip](https://github.com/sh-miyoshi/movie-manager/releases/download/v0.1/movie-manager-win32-x64.zip)
 - 任意の場所にzipを解凍
+  - 展開できないものはスキップして大丈夫そうです(※)
 - movie-manager.exeをダブルクリック
 
 ## 使い方
