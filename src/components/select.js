@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getSelectTags, setSelectTags } from '../plugins/db'
+import { Row } from 'react-bootstrap'
 import { Tag } from './tag'
 
 export class Select extends Component {
@@ -42,15 +43,17 @@ export class Select extends Component {
 
   render() {
     return (
-      <div>
-        Filter Tags: {this.state.tags.map((tag) => <Tag name={tag} remover={this.remover} />)}
-        <div className="input-group mb-3">
-          <input type="text" className="form-control" placeholder="new filter tag name" value={this.state.tag} onChange={this.handleChange} />
-          <div className="input-group-append">
-            <button className="btn btn-primary btn-sm" onClick={() => this.addTag()}>Add</button>
+      <Row>
+        <div>
+          Filter Tags: {this.state.tags.map((tag) => <Tag name={tag} remover={this.remover} />)}
+          <div className="input-group mb-3">
+            <input type="text" className="form-control" placeholder="new filter tag name" value={this.state.tag} onChange={this.handleChange} />
+            <div className="input-group-append">
+              <button className="btn btn-primary btn-sm" onClick={() => this.addTag()}>Add</button>
+            </div>
           </div>
         </div>
-      </div>
+      </Row>
     )
   }
 }

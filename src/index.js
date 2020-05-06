@@ -10,12 +10,8 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <Row>
-          <Header />
-        </Row>
-        <Row>
-          <Select />
-        </Row>
+        <Header />
+        <Select />
         <Row>
           Movies:
         </Row>
