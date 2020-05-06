@@ -41,6 +41,8 @@ export function addOpenFileOrDirectoryList(pathList) {
     }
   }
 
+  console.log("Open Directory List: %o", filesData)
+
   // save filesData
   fs.writeFileSync(filesDBFile, JSON.stringify(filesData, null, 4))
 }
@@ -110,6 +112,8 @@ export function getAllTag() {
 }
 
 export function removeTag(fileName, targetTag) {
+  console.log("removing a tag %s from %s", targetTag, fileName)
+
   if (tagsData == null) {
     return
   }
@@ -126,17 +130,28 @@ export function removeTag(fileName, targetTag) {
 }
 
 export function addTag(fileName, tag) {
+  console.log("adding a tag %s from %s", tag, fileName)
+
   if (tagsData == null) {
     return
   }
 
+  let found = false
   for (const data of tagsData) {
     if (data.name === fileName) {
+      found = true
       if (!data.tags.includes(tag)) {
         data.tags.push(tag)
       }
       break
     }
+  }
+
+  if (!found) {
+    tagsData.push({
+      name: fileName,
+      tags: [tag]
+    })
   }
 
   fs.writeFileSync(tagsDBFile, JSON.stringify(tagsData, null, 4))
@@ -150,6 +165,7 @@ export function getSelectTags() {
 }
 
 export function setSelectTags(tags) {
+  console.log("filter tag list: %o", tags)
   selectsData = tags
   fs.writeFileSync(selectsDBFile, JSON.stringify(selectsData, null, 4))
 }
