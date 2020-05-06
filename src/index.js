@@ -33,13 +33,15 @@ class App extends Component {
     return (
       <Container>
         <Row>
-          <Col>headers</Col>
           <Col>
             <button onClick={this.handleOpenDir}>Open Derectory</button>
           </Col>
         </Row>
         <Row>
           <Select />
+        </Row>
+        <Row>
+          Movies:
         </Row>
         <Row>
           {
