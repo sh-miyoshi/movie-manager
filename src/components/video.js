@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Tag } from './tag'
 import path from 'path'
 import { getTags, removeTag, addTag } from '../plugins/db'
+import { Card, InputGroup, FormControl, Button } from 'react-bootstrap'
 
 export class Video extends Component {
   constructor(props) {
@@ -52,13 +53,27 @@ export class Video extends Component {
 
   render() {
     return (
-      <div>
-        Title: {this.getFileName(this.props.name)}<br />
-        Tags: {getTags(this.props.name).map((tag) => <Tag name={tag} remover={this.remover} />)}<br />
-        <input type="text" value={this.state.tag} onChange={this.handleChange} />
-        <button onClick={() => this.addTag()}>Add Tag</button><br />
-        <video controls width="300px" src={path.resolve(this.props.name)}></video>
-      </div>
+      <Card>
+        <Card.Header>{this.getFileName(this.props.name)}</Card.Header>
+        <Card.Body>
+          <div>
+            Tags: {getTags(this.props.name).map((tag) => <Tag name={tag} remover={this.remover} />)}
+          </div>
+          <InputGroup className="mb-3">
+            <div>
+              <FormControl
+                placeholder="new tag name"
+                value={this.state.tag}
+                onChange={this.handleChange}
+              />
+            </div>
+            <InputGroup.Append>
+              <Button variant="primary" size="sm" onClick={() => this.addTag()}>Add</Button>
+            </InputGroup.Append>
+          </InputGroup>
+          <video controls width="300px" src={path.resolve(this.props.name)}></video>
+        </Card.Body>
+      </Card>
     )
   }
 }
