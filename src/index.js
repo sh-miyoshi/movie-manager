@@ -1,41 +1,17 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Video } from './components/video'
-import { getFilteredVideoFiles, addOpenFileOrDirectoryList } from './plugins/db'
-import { remote } from 'electron'
+import { getFilteredVideoFiles } from './plugins/db'
 import { Select } from './components/select'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
+import { Header } from './components/header'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      reload: false
-    }
-
-    this.handleOpenDir = this.handleOpenDir.bind(this);
-  }
-
-  handleOpenDir() {
-    const res = remote.dialog.showOpenDialogSync({ properties: ['openDirectory'] })
-    if (res) {
-      addOpenFileOrDirectoryList(res)
-
-      // refresh component
-      this.setState(
-        { reload: true },
-        () => this.setState({ reload: false })
-      )
-    }
-  }
-
   render() {
     return (
       <Container>
         <Row>
-          <Col>
-            <button onClick={this.handleOpenDir}>Open Derectory</button>
-          </Col>
+          <Header />
         </Row>
         <Row>
           <Select />
