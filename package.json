@@ -1,10 +1,10 @@
 {
   "name": "movie-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A management tool for local movies.",
   "main": "main.js",
   "scripts": {
-    "build": "webpack --mode production && electron-packager . --overwrite --platform=win32 --arch=x64 --out=dist",
+    "build": "webpack --mode production && electron-builder",
     "dev-server": "webpack --mode development --watch",
     "electron": "cross-env NODE_ENV=development electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +19,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "electron": "^8.2.4",
-    "electron-packager": "^14.2.1",
+    "electron-builder": "^22.8.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
@@ -30,5 +30,14 @@
     "bootstrap": "^4.4.1",
     "fs": "0.0.1-security",
     "react-bootstrap": "^1.0.1"
+  },
+  "build": {
+    "appId": "com.smiyoshi.movie-manager",
+    "extraFiles": [
+      "db"
+    ],
+    "win": {
+      "target": "zip"
+    }
   }
 }
