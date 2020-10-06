@@ -18,7 +18,7 @@
     "babel-loader": "^8.1.0",
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
-    "electron": "^8.2.4",
+    "electron": "^8.5.1",
     "electron-builder": "^22.8.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
